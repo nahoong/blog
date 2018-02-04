@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 | MyBlog</title>
+
+ 	<!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">    
+    
+    <link type="text/css" rel="stylesheet" href="/css/login.css" />  
+</head>
+<body>
+	<div class="container" id="main">
+
+		<form class="form-signin" id="form" action="./LoginServlet"
+			method="post">
+			<a href="./index.jsp"><h2 class="form-signin-heading">MyBlog</h2></a>
+			<label for="input" class="sr-only">User name</label> <input type="text"
+				id="input" class="form-control" placeholder="아이디" name="username"
+				required> <label for="inputPassword" class="sr-only">password</label>
+			<input type="password" id="inputPassword" class="form-control"
+				placeholder="비밀번호" name="password" required>
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit"
+				id="submit">Login</button>
+
+			<a href="./index.jsp">visitors</a>
+		</form>
+		<!-- /form -->
+
+	</div>
+	<!-- /container -->
+
+	<div id="footer">
+	<div>
+			<a href="https://github.com/nahoong"><img src="img/github.png"	width="20px" height="20px" class="img-circle">&nbsp;&nbsp;GitHub</a>
+			&nbsp;|
+		<a href="#">&nbsp;&nbsp;nahoong</a>
+		</div>	
+	</div>
+	<!-- footer -->
+
+</body>
+</html>

@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import blog.dao.ArticleDao;
 import blog.dao.UserDao;
@@ -30,8 +30,8 @@ public class LoginServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 8386271655057731963L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		//HttpSession session = request.getSession(true); //세션만들기
 		LoginUtils.login(request);
 		
 		System.out.println("LoginServlet 에서 메인에서 사용될 변수 설정  ");
@@ -55,8 +55,8 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute("visited", VisitorDB.totalVisit());
 		request.setAttribute("member", VisitorDB.totalMember());
 		
-		request.getRequestDispatcher("/page/main.jsp").forward(request, response);	
-		
+		request.getRequestDispatcher("/page/main.jsp").forward(request, response);
+			
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

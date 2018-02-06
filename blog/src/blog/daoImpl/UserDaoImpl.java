@@ -78,6 +78,8 @@ public class UserDaoImpl implements UserDao {
 				} catch (Exception e) {
 					throw new RuntimeException();
 				}
+			}else {
+				System.out.println("없는 사용자 입니다.");
 			}
 			DBUtils.Close(ps, rs);
 		} catch (SQLException e) {

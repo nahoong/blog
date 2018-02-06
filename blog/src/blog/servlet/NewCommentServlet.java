@@ -27,15 +27,14 @@ public class NewCommentServlet extends HttpServlet {
 		String cookie_name = "comment_cookie"+request.getParameter("id");
 		
 		
+		System.out.println("NewCommentServlet -> doget / ÄíÅ° id = " + cookie_name);
 		
-		
-		
-		//?ˆ¤?–­?˜¯?¦?¶?„?äº?
 		boolean isRpeat = false;
 		
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null) {
 			for (Cookie c : cookies) {
+				System.out.println("ÄíÅ°°ª : "+c.getName());
 				if (c.getName().equals(cookie_name)) {
 					isRpeat = true;
 					break;
@@ -43,17 +42,13 @@ public class NewCommentServlet extends HttpServlet {
 			}
 		}
 
-		
-		
-		
-		
-		//è¿”å›?š„ä¿¡æ¯		
+	
 		String info;		
 		if( !isRpeat ){	
 		Comment cm ;
-		//?·?–å¯¹è±¡
+
 		try {
-			System.out.println("NewCommentServlet -> doget / ÄíÅ° id = " + cookie_name + " / isRpeat(ÄíÅ°Áßº¹)" + isRpeat);
+			System.out.println("NewCommentServlet -> doget ¼º°ø");
 			cm = Form2Bean.commentForm2Bean(request);
 			CommentService cs = CommentService.getInstance();
 			boolean result = cs.addComment(cm);
@@ -67,7 +62,7 @@ public class NewCommentServlet extends HttpServlet {
 			info="comment failed!";			
 		}
 		}else{
-			System.out.println("NewCommentServlet -> doget / ÄíÅ°¹®Á¦¹ß»ı" + cookie_name + " / isRpeat(ÄíÅ°Áßº¹)" + isRpeat);
+			System.out.println("NewCommentServlet -> doget ÄíÅ°¹®Á¦ ½ÇÆĞ");
 			info ="repeat submit comment!";
 		}
 				

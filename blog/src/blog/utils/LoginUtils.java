@@ -1,6 +1,10 @@
 package blog.utils;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import blog.dao.UserDao;
@@ -19,8 +23,10 @@ public class LoginUtils {
 		
 		UserDao dao = UserDaoImpl.getInstance();
 		User user = dao.login(username, password);
-		if(user==null) 
+		if(user==null) {
 			return ;
+		}
+			
 		
 		//?†™?…¥session
 		HttpSession session = request.getSession();

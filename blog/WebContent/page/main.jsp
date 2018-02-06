@@ -13,6 +13,7 @@
 
 <link type="text/css" rel="stylesheet" href="./css/main.css" />
 </head>
+
 <body>
 	<div class="head_line"></div>
 
@@ -24,7 +25,14 @@
 			<div class="col-md-3" id="left_content">
 
 				<div id="title">
+				<c:choose>
+					<c:when test="${sessionScope.user!=null}">
+					<h2><a href="/blog/logout.jsp">logout</a></h2>
+					</c:when>
+					<c:otherwise>
 					<h2><a href="/blog/login.html">MyBlog</a></h2>
+					</c:otherwise>
+				</c:choose>
 					<h5 class="text-muted">블로그를 시작하지</h5>
 				</div>
 

@@ -21,14 +21,16 @@ public class CMDissServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// ä¸šåŠ¡?“ä½? ?·?–è¯„è?ºid
-		System.out.println("CMDissServlet json¿¡ »ç¿ëµÉ º¯¼ö ÆÄ½Ì");
+		
 		String id = request.getParameter("id");
+		System.out.println("CMDissServlet json¿¡ »ç¿ëµÉ º¯¼ö ÆÄ½Ì id  = " + id);
 		// è¿”å›?š„?•°?®
 		JSONObject jo = new JSONObject();
 		boolean repeat = false;
 		// ?†™ä¸?ä¸ªcookie?˜²æ­??‡å¤æäº?
 		Cookie[] cookies = request.getCookies();
 		for (Cookie cookie : cookies) {
+			System.out.println("ÄíÅ°°ª : " + cookie.getName());
 			if (cookie.getName().equals("diss_cm" + id)) {
 				// ?‡å¤æäº¤äº†?•°?®
 				jo.put("msg", "failed");
@@ -37,7 +39,7 @@ public class CMDissServlet extends HttpServlet {
 			}
 		}
 		if (!repeat) {
-
+			System.out.println("CMDissServlet ¼º°ø");
 			CommentService cs = CommentService.getInstance();
 			int new_diss = cs.star_diss(Integer.parseInt(id), Comment.DISS);
 			jo.put("msg", "success");
@@ -51,6 +53,8 @@ public class CMDissServlet extends HttpServlet {
 			cookie.setPath("/blog");
 			// ?†™ä¼šæµè§ˆå™¨
 			response.addCookie(cookie);
+		}else {
+			System.out.println("CMDissServlet json ½ÇÆĞ");
 		}
 		// ?†™?›ajax
 		response.getWriter().println(jo);

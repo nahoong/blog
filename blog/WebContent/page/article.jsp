@@ -156,7 +156,8 @@
 			<textarea style="resize:none; width:100%; height:180px;" name="w_content"></textarea>
 			<br/>
 			<br/>			
-			<input  class="btn btn-default"  type="submit"   value="评论" onclick="onclick"/>	
+			<input  class="btn btn-default"  type="submit"   value="评论" onclick="onclick"/>
+			한시간에 한번 등록할수있음
 			<br/>						
 			</form>			
 			</div>

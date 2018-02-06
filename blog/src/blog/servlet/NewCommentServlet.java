@@ -27,14 +27,14 @@ public class NewCommentServlet extends HttpServlet {
 		String cookie_name = "comment_cookie"+request.getParameter("id");
 		
 		
-		System.out.println("NewCommentServlet -> doget / 쿠키 id = " + cookie_name);
+		System.out.println("NewCommentServlet -> doget 시작 / 쿠키 id = " + cookie_name);
 		
 		boolean isRpeat = false;
 		
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null) {
 			for (Cookie c : cookies) {
-				System.out.println("쿠키값 : "+c.getName());
+				System.out.println("쿠키 : "+c.getName() + " / 쿠키값 : " + c.getValue());
 				if (c.getName().equals(cookie_name)) {
 					isRpeat = true;
 					break;
@@ -61,13 +61,14 @@ public class NewCommentServlet extends HttpServlet {
 			e.printStackTrace();
 			info="comment failed!";			
 		}
-		}else{
+		}else{ 
 			System.out.println("NewCommentServlet -> doget 쿠키문제 실패");
 			info ="repeat submit comment!";
 		}
 				
-		//?룕?곫뼭?쉪cookie 
+		//쿠키만들기 아래를 만들면 맨위에 중복이 걸리게
 		Cookie c = new Cookie(cookie_name,DateUtils.getFormatDate(new Date()));
+		System.out.println("NewCommentServlet -> doget 종료 쿠키생성값 " + c.getName() + " / 쿠키값 : " + c.getValue());
 		c.setMaxAge(60 * 60);
 		c.setPath("/blog");
 		response.addCookie(c);

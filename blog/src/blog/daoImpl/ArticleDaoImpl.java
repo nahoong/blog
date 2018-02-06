@@ -46,7 +46,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	 */
 	@Override
 	public void addVisit(int article_id) {
-
+		System.out.println("ArticleDaoimpl -> addVisit article id = " + article_id);
 		String sql = "update t_article set visit = visit+1 where blog_id = " + article_id;
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -160,7 +160,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	}
 
 	/**
-	 * å°†æ–‡ç« åŠ ?ˆ°delteè¡?
+	 * 
 	 * 
 	 * @param a
 	 * @return
@@ -405,7 +405,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	 */
 	@Override
 	public boolean delelteSort(String sort) {
-		// ?‰¾?ˆ°è¿™ä¸ª?ˆ†ç±»ä¸‹?š„?–‡ç«? ç§»åŠ¨?ˆ°t_article_delet
+		
 		String sql = "SELECT * FROM t_article where blog_sort = ?";
 		int result = 0;
 		try {

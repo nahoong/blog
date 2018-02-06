@@ -11,21 +11,20 @@ public class DateUtils {
 
 	
 	
-	/**
-	 * dateå¯¹è±¡è½¬æ¢?ˆString (datetime)  
-	 * 	2017-09-18 12:17:18
+	/*
 	 * @param date
 	 * @return
 	 */
 	public static String getFormatDate(Date date){
-		
-		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+		 //System.out.println("DateUtils -> getGormatDate º¯°æÀüvalue : " + date);
+		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		 //System.out.println("DateUtils -> getGormatDate º¯°æÈÄvalue : " + format.format(date));
 		 return  format.format(date);
 	}
 	
 	
 	/**
-	 * String(datetime)è½¬æ¢?ˆdateå¯¹è±¡
+	 * String(datetime)
 	 * @param date
 	 * @return
 	 * @throws ParseException

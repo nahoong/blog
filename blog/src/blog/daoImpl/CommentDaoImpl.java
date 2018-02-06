@@ -159,9 +159,9 @@ public class CommentDaoImpl implements CommentDao {
 		int result = -1;
 
 		if (star_or_diss == Comment.STAR) {
-			sql = "update t_comment set blog_star=blog_star+1 where article_id=" + id;
+			sql = "update t_comment set blog_star=blog_star+1 where blog_id=" + id;
 		} else if (star_or_diss == Comment.DISS) {
-			sql = "update t_comment set blog_diss=blog_diss-1 where article_id=" + id;
+			sql = "update t_comment set blog_diss=blog_diss-1 where blog_id=" + id;
 		} else {
 			return -1;
 		}
@@ -175,9 +175,9 @@ public class CommentDaoImpl implements CommentDao {
 		}
 
 		if (star_or_diss == Comment.STAR) {
-			sql = "SELECT blog_star FROM t_comment WHERE article_id = " + id;
+			sql = "SELECT blog_star FROM t_comment WHERE blog_id = " + id;
 		} else if (star_or_diss == Comment.DISS) {
-			sql = "SELECT blog_diss FROM t_comment WHERE article_id = " + id;
+			sql = "SELECT blog_diss FROM t_comment WHERE blog_id = " + id;
 		}
 
 		try {

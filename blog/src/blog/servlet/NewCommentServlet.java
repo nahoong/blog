@@ -53,7 +53,7 @@ public class NewCommentServlet extends HttpServlet {
 		Comment cm ;
 		//?·?–å¯¹è±¡
 		try {
-			System.out.println("NewCommentServlet -> doget / ÄíÅ° id = " + cookie_name );
+			System.out.println("NewCommentServlet -> doget / ÄíÅ° id = " + cookie_name + " / isRpeat(ÄíÅ°Áßº¹)" + isRpeat);
 			cm = Form2Bean.commentForm2Bean(request);
 			CommentService cs = CommentService.getInstance();
 			boolean result = cs.addComment(cm);
@@ -67,7 +67,7 @@ public class NewCommentServlet extends HttpServlet {
 			info="comment failed!";			
 		}
 		}else{
-			System.out.println("NewCommentServlet -> doget / ÄíÅ°¹®Á¦¹ß»ı");
+			System.out.println("NewCommentServlet -> doget / ÄíÅ°¹®Á¦¹ß»ı" + cookie_name + " / isRpeat(ÄíÅ°Áßº¹)" + isRpeat);
 			info ="repeat submit comment!";
 		}
 				
